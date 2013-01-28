@@ -1,0 +1,3 @@
+LIBRARY MonPol.dll
+EXPORTS
+ R_init_MonPol

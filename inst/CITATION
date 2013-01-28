@@ -1,0 +1,22 @@
+citHeader("To cite the 'MonoPoly' package in publications use:")
+
+citEntry(entry="Article",
+         author = personList(as.person("K. Murray"),
+                             as.person("S. M{\\\"u}ller"),
+                             as.person("B. A. Turlach")),
+         title= "Revisiting fitting monotone polynomials to data",
+         journal = "Computational Statistics",
+         year    = "2013",
+         url     = "http://dx.doi.org/10.1007/s00180-012-0390-5",
+  
+        textVersion =
+        paste("Murray, K., Müller, S. and Turlach, B.A. (2013).",
+              "Revisiting fitting monotone polynomials to data,",
+              "Computational Statistics. Doi:10.1007/s00180-012-0390-5.")
+)
+
+
+
+
+
+

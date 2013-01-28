@@ -1,0 +1,94 @@
+
+R version 2.15.2 (2012-10-26) -- "Trick or Treat"
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu/32 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(MonoPoly)
+Loading required package: quadprog
+> 
+> par <- rep(1,8)
+> MonoPoly:::evalCoef(par, ptype="El", ctype="c2")
+     beta0      beta1      beta2      beta3      beta4      beta5      beta6 
+ 1.0000000  8.0000000 12.0000000 12.0000000  8.0000000  3.6000000  1.0000000 
+     beta7 
+ 0.1428571 
+> MonoPoly:::evalCoef(par, ptype="El", ctype="cge0")
+     beta0      beta1      beta2      beta3      beta4      beta5      beta6 
+ 1.0000000  8.0000000 12.0000000 12.0000000  8.0000000  3.6000000  1.0000000 
+     beta7 
+ 0.1428571 
+> MonoPoly:::evalCoef(par, ptype="EHH", ctype="c2")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+1.000000 1.000000 3.000000 6.000000 8.000000 7.200000 4.000000 1.142857 
+> MonoPoly:::evalCoef(par, ptype="EHH", ctype="cge0")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+1.000000 1.000000 3.000000 6.000000 8.000000 7.200000 4.000000 1.142857 
+> MonoPoly:::evalCoef(par, ptype="P", ctype="c2")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+1.000000 1.000000 3.000000 6.000000 8.000000 7.200000 4.000000 1.142857 
+> MonoPoly:::evalCoef(par, ptype="P", ctype="cge0")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+1.000000 1.000000 3.000000 6.000000 8.000000 7.200000 4.000000 1.142857 
+> 
+> par <- 1:8
+> MonoPoly:::evalCoef(par, ptype="El", ctype="c2")
+       beta0        beta1        beta2        beta3        beta4        beta5 
+1.000000e+00 3.446500e+05 9.095800e+04 1.776467e+04 2.234000e+03 1.932000e+02 
+       beta6        beta7 
+1.000000e+01 2.857143e-01 
+> MonoPoly:::evalCoef(par, ptype="El", ctype="cge0")
+       beta0        beta1        beta2        beta3        beta4        beta5 
+1.000000e+00 4.594200e+04 2.365400e+04 7.170000e+03 1.342000e+03 1.540000e+02 
+       beta6        beta7 
+1.000000e+01 2.857143e-01 
+> MonoPoly:::evalCoef(par, ptype="EHH", ctype="c2")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+    1.00     2.00    30.00   322.00  2234.00 10658.80 30319.33 49235.71 
+> MonoPoly:::evalCoef(par, ptype="EHH", ctype="cge0")
+    beta0     beta1     beta2     beta3     beta4     beta5     beta6     beta7 
+   1.0000    2.0000   30.0000  256.6667 1342.0000 4302.0000 7884.6667 6563.1429 
+> MonoPoly:::evalCoef(par, ptype="P", ctype="c2")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+    1.00 22050.00 14910.00 38711.33 23130.00 35791.60 11428.67 11681.43 
+> MonoPoly:::evalCoef(par, ptype="P", ctype="cge0")
+     beta0      beta1      beta2      beta3      beta4      beta5      beta6 
+    1.0000 22050.0000 14910.0000 11691.3333  5070.0000  2094.0000   439.3333 
+     beta7 
+   90.0000 
+> 
+> par <- 8:1
+> MonoPoly:::evalCoef(par, ptype="El", ctype="c2")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+    8.00 53375.00 35140.00 13036.33  2828.00   373.80    28.00     1.00 
+> MonoPoly:::evalCoef(par, ptype="El", ctype="cge0")
+  beta0   beta1   beta2   beta3   beta4   beta5   beta6   beta7 
+    8.0 27265.0 20636.0  8827.0  2240.0   337.4    28.0     1.0 
+> MonoPoly:::evalCoef(par, ptype="EHH", ctype="c2")
+   beta0    beta1    beta2    beta3    beta4    beta5    beta6    beta7 
+    8.00     7.00    84.00   623.00  2828.00  7821.80 11713.33  7625.00 
+> MonoPoly:::evalCoef(par, ptype="EHH", ctype="cge0")
+    beta0     beta1     beta2     beta3     beta4     beta5     beta6     beta7 
+   8.0000    7.0000   84.0000  562.3333 2240.0000 5296.2000 6878.6667 3895.0000 
+> MonoPoly:::evalCoef(par, ptype="P", ctype="c2")
+    beta0     beta1     beta2     beta3     beta4     beta5     beta6     beta7 
+    8.000 16128.000 14784.000 15306.667 10080.000  5734.400  1978.667   520.000 
+> MonoPoly:::evalCoef(par, ptype="P", ctype="cge0")
+  beta0   beta1   beta2   beta3   beta4   beta5   beta6   beta7 
+    8.0 16128.0 14784.0 10304.0  4704.0  1612.8   336.0    48.0 
+> 
+> proc.time()
+   user  system elapsed 
+  0.212   0.016   0.218 

@@ -1,0 +1,16 @@
+useDynLib(MonoPoly, .registration = TRUE, .fixes = ".MP_")
+
+export(monpol)
+export(monpol.fit)
+export(monpol.control)
+export(evalPol)
+
+S3method(coef, monpol)
+S3method(fitted, monpol)
+S3method(formula, monpol)
+S3method(logLik, monpol)
+S3method(model.matrix, monpol)
+S3method(print, monpol)
+S3method(predict, monpol)
+S3method(residuals, monpol)
+
