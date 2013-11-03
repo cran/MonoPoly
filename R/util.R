@@ -17,10 +17,9 @@
 ###
 
 evalPol <- function(x, beta){
-  order <- length(beta)
-  res <- beta[order]
-  for(i in rev(seq_len(order-1)))
-    res <- res*x + beta[i]
+  res <- 0
+  for(bi in rev(beta))
+    res <- res*x + bi
   res
 }
 

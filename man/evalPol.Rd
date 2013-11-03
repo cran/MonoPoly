@@ -11,12 +11,14 @@
 evalPol(x, beta)
 }
 \arguments{
-  \item{x}{numerical values at which to evaluate polynomials}
+  \item{x}{numerical values at which to evaluate polynomials, can be
+    provided in a vector, matrix, array or data frame}
   \item{beta}{numerical vector containing the coefficient of the
     polynomial}
 }
 \value{
-  The evaluated polynomial
+  The result of evaluating the polynomial at the values in \code{x},
+  returned in the same dimension as \code{x} has.
 }
 \author{
 Berwin A Turlach
@@ -25,11 +27,26 @@ Berwin A Turlach
 ## The function is currently defined as
 function (x, beta) 
 {
-    order <- length(beta)
-    res <- beta[order]
-    for (i in rev(seq_len(order - 1))) res <- res * x + beta[i]
+    res <- 0
+    for(bi in rev(beta))
+      res <- res*x + bi
     res
   }
+
+beta <- c(1,2,1)
+
+x <- 0:10
+evalPol(x, beta)
+str(evalPol(x, beta))
+
+x <- cbind(0:10, 10:0)
+evalPol(x, beta)
+str(evalPol(x, beta))
+
+
+x <- data.frame(x=0:10, y=10:0)
+evalPol(x, beta)
+str(evalPol(x, beta))
 }
 \keyword{utilities}
 \keyword{regression}

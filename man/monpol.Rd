@@ -75,8 +75,8 @@ monpol(formula, data, subset, weights, na.action,
 }
 \references{
 Murray, K., Mueller, S. and Turlach, B.A. (2013). Revisiting fitting
-monotone polynomials to data, Computational
-Statistics. Doi:10.1007/s00180-012-0390-5.  
+monotone polynomials to data, \emph{Computational
+Statistics} \bold{28}(5): 1989--2005. Doi:10.1007/s00180-012-0390-5.  
 }
 \author{
 Berwin A Turlach
