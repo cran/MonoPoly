@@ -40,8 +40,8 @@ coef.monpol <- function(object,
     if(type == "beta"){
       object$beta
     }else{
-      if(object$algorithm=="Hawkins")
-        stop("Algorithm 'Hawkins' does not provide monotone parameterisation.")
+      if(object$algorithm %in% c("Hawkins", "NoIntercept"))
+        stop("Algorithms 'Hawkins' and 'NoIntercept' do not provide monotone parameterisation.")
       object$par
     }
   }
@@ -135,7 +135,9 @@ logLik.monpol <- function (object, REML = FALSE, ...){
     zw <- w==0
     rss.unscaled <- object$scly^2*object$RSS/4
     val<- -n*(log(2*pi) + 1 - log(n) - sum(log(w + zw)) + log(rss.unscaled))/2
-    attr(val, "df") <- 1L + length(coef(object))
+    attr(val, "df") <- 1L + ifelse(object$algorithm=="NoIntercept", 
+                                   length(coef(object)) - 1, 
+                                   length(coef(object)))
     attr(val, "nobs") <- attr(val, "nall") <- sum(!zw)
     class(val) <- "logLik"
     val

@@ -1,4 +1,4 @@
-###  Copyright (C) 2011-2012 Berwin A. Turlach <Berwin.Turlach@gmail.com>
+###  Copyright (C) 2011-2015 Berwin A. Turlach <Berwin.Turlach@gmail.com>
 ###
 ###  This program is free software; you can redistribute it and/or modify
 ###  it under the terms of the GNU General Public License as published by
@@ -147,12 +147,18 @@ monpol <- function (formula, data, subset, weights, na.action,
     w <- as.vector(model.weights(mf))
     if (!is.null(w) && !is.numeric(w)) 
       stop("'weights' must be a numeric vector")
+    if (is.empty.model(mt)) 
+      stop("You should specify a regressor variable.")
+
+    NoIntercept <- attr(mt, "intercept")  
+    attr(mt, "intercept") <- 0
+    x <- model.matrix(mt, mf)
+    if(NCOL(x) != 1)
+      stop("Regressor variable should be univariate.")
 
     algorithm <- match.arg(algorithm)
     ptype <- match.arg(ptype)
     ctype <- match.arg(ctype)
-    if(missing(w))
-      w <- NULL
     
     if(!missing(K)){
       if(!missing(degree))
@@ -169,19 +175,15 @@ monpol <- function (formula, data, subset, weights, na.action,
                     "' degree should be an odd integer.", sep=""))
     }
     
-
-    if (is.empty.model(mt)) {
-      stop("You should specify a regressor variable.")
-    }
-    else {
-      attr(mt, "intercept") <- 0
-      x <- model.matrix(mt, mf)
-      if(NCOL(x) != 1)
-        stop("Regressor variable should be univariate.")
+    if(NoIntercept == 0){
+      z <- monpol.noint(x=x, y=y, w=w, K=K,
+                        trace=trace, plot.it=plot.it, control=control)
+    }else{
       z <- monpol.fit(x=x, y=y, w=w, K=K, start=start, trace=trace,
                       plot.it=plot.it, control=control,
                       algorithm=algorithm, ptype=ptype, ctype=ctype)
     }
+
     z$na.action <- attr(mf, "na.action")
     z$call <- cl
     z$terms <- mt

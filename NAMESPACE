@@ -5,6 +5,8 @@ export(monpol.fit)
 export(monpol.control)
 export(evalPol)
 
+import(quadprog)
+
 S3method(coef, monpol)
 S3method(fitted, monpol)
 S3method(formula, monpol)
@@ -14,3 +16,9 @@ S3method(print, monpol)
 S3method(predict, monpol)
 S3method(residuals, monpol)
 
+importFrom("graphics", "abline", "lines", "plot")
+importFrom("stats", ".checkMFClasses", "coef", "convolve", "cor",
+           "delete.response", "fitted", "formula", "is.empty.model",
+           "lm.fit", "lm.wfit", "model.frame", "model.matrix",
+           "model.matrix.default", "model.response", "model.weights",
+           "na.omit", "napredict", "naresid", "weighted.mean")
