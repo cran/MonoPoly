@@ -124,12 +124,14 @@ monpol.fit <- function(x, y, w=NULL, K=1, start,
 }
 
 monpol <- function (formula, data, subset, weights, na.action,
-                    degree=3, K, start,
+                    degree = 3, K, start,
+                    a = -Inf, b = Inf,
                     trace=FALSE, plot.it=FALSE,
                     control=monpol.control(),
                     algorithm=c("Full", "Hawkins", "BCD", "CD1", "CD2"),
-                    ptype=c("Elphinstone", "EHH", "Penttila"),
+                    ptype=c("SOS", "Elphinstone", "EHH", "Penttila"),
                     ctype=c("cge0", "c2"),
+                    monotone,
                     model = FALSE, x = FALSE, y = FALSE) 
 {
     ret.x <- x
@@ -150,7 +152,7 @@ monpol <- function (formula, data, subset, weights, na.action,
     if (is.empty.model(mt)) 
       stop("You should specify a regressor variable.")
 
-    NoIntercept <- attr(mt, "intercept")  
+    NoIntercept <- attr(mt, "intercept") == 0
     attr(mt, "intercept") <- 0
     x <- model.matrix(mt, mf)
     if(NCOL(x) != 1)
@@ -170,20 +172,43 @@ monpol <- function (formula, data, subset, weights, na.action,
       if( trunc(degree) != degree || degree <= 0 )
         stop("'degree' should be a positive integer.")
       K <- (degree-1)/2
-      if(trunc(K) != K)
-        stop(paste("For algorithm '", algorithm,
-                    "' degree should be an odd integer.", sep=""))
-    }
-    
-    if(NoIntercept == 0){
-      z <- monpol.noint(x=x, y=y, w=w, K=K,
-                        trace=trace, plot.it=plot.it, control=control)
-    }else{
-      z <- monpol.fit(x=x, y=y, w=w, K=K, start=start, trace=trace,
-                      plot.it=plot.it, control=control,
-                      algorithm=algorithm, ptype=ptype, ctype=ctype)
     }
 
+    ## if 'degree' is specified, K might not be integer at this point
+    ## but we also want to define 'degree.is.odd' without having the
+    ## code in both arms of the above if(){...}else{..}
+    if( !(degree.is.odd <- trunc(K) == K) ){
+      K <- trunc(K)+1
+    }
+
+    type <- 3-(is.infinite(a)+2*is.infinite(b))
+    if(type==2)
+      stop("'a' must be finite if 'b' is finite.")
+    if(type==0 && !degree.is.odd)
+      stop("'degree' must be odd if 'a=-Inf' and 'b=Inf'.")
+    if(type==3)
+      type <- type-1
+    if(type!=0 && ptype!="SOS" && !NoIntercept)
+      stop("Parameterisation 'SOS' has to be used, or a no-intercept model, if 'a' or 'b', or both, are finite.")
+    
+    if(NoIntercept){
+      z <- monpol.noint(x=x, y=y, w=w, deg.is.odd=degree.is.odd,
+                        a=a, b=b, K=K, start=start,
+                        trace=trace, plot.it=plot.it, control=control)
+    }else{
+      if(ptype=="SOS"){
+        z <- SOSpol.fit(x=x, y=y, w=w, deg.is.odd=degree.is.odd,
+                        a=a, b=b, monotone=monotone,
+                        K=K, start=start,
+                        trace=trace, plot.it=plot.it, type=type,
+                        control=control)
+      }else{
+        z <- monpol.fit(x=x, y=y, w=w, K=K, start=start, trace=trace,
+                        plot.it=plot.it, control=control,
+                        algorithm=algorithm, ptype=ptype, ctype=ctype)
+      }
+    }
+    
     z$na.action <- attr(mf, "na.action")
     z$call <- cl
     z$terms <- mt

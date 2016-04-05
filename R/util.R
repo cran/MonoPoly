@@ -23,6 +23,20 @@ evalPol <- function(x, beta){
   res
 }
 
+curvPol <- function(x, beta){
+  b1der <- beta[-1]
+  b1der <- b1der*(1:length(b1der))
+  b2der <- b1der[-1]
+  b2der <- b2der*(1:length(b2der))
+  res1 <- 0
+  for(bi in rev(b1der))
+    res1 <- res1*x + bi
+  res2 <- 0
+  for(bi in rev(b2der))
+    res2 <- res2*x + bi
+  res2/(1+res1^2)^(1.5)
+}
+
 coef.monpol <- function(object,
                         scale=c("original", "fitted"),
                         type=c("beta", "monpar"), ...){
@@ -146,4 +160,3 @@ logLik.monpol <- function (object, REML = FALSE, ...){
 nobs.monpol <- function(object, ...){
   if (is.null(w <- object$weights)) length(object$residuals) else sum(w != 0) 
 }
-  

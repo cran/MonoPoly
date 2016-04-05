@@ -15,7 +15,8 @@
 ###  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307,
 ###  USA.
 ###
-monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace, 
+monpol.noint <- function(x=x, y=y, w=w, deg.is.odd, K, start,
+                         a, b, trace,
                          plot.it=plot.it, control=control){
 
   no.w <- FALSE
@@ -27,6 +28,8 @@ monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace,
   minx <- 0
   sclx <- max(abs(x))
   x <- x/sclx
+  a <- a/sclx
+  b <- b/sclx
 
   ## other code (e.g. fitted.monpol) requires that y is sclaed
   ## according to the formula 
@@ -52,7 +55,7 @@ monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace,
     xgr <- seq(-1,1,length=401)
 
     n <- length(x)
-    q <- 2*K+1
+    q <- 2*K + deg.is.odd
     Xmat <- matrix(0, nrow=n, ncol=q)
     Xmat[,1] <- x
     for(i in 2:q)
@@ -66,7 +69,8 @@ monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace,
     beta <- rep(0, q+1)
     names(beta) <- paste0("beta", 0:q)
 
-    ii <- seq(from=2, to=q+1, by=2)
+##    ii <- seq(from=2, to=q+1, by=2)
+    ii <- (start+1):2
     converged <- FALSE
     niter <- 0
     while(!converged){
@@ -94,7 +98,7 @@ monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace,
         jj <- 1
         while( jj <= 20 ){
           beta.try[ind] <- beta[ind] + step.len * step
-          if(ismonotone(beta.try)){
+          if(ismonotone(beta.try, a, b)){
             beta <- beta.try
             break()
           }
@@ -117,7 +121,7 @@ monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace,
           lines(xgr, evalPol(xgr, beta), col="green")
         }
       }
-      ii <- 2:(q+1)
+      ii <- (q+1):2
       niter <- niter+1
       RSS <- sum(w*(y-evalPol(x,beta))^2)
       if(trace){
@@ -144,7 +148,7 @@ monpol.noint <- function(x=x, y=y, w=w, K=K, trace=trace,
   storage.mode(tmp) <- "double"
   tmp <- .Fortran(.MP_transf,
                   c = tmp,
-                  as.integer(2L*K+2L), as.integer(2L*K+2L),
+                  as.integer(NROW(tmp)), as.integer(NCOL(tmp)),
                   scl = as.double(1/sclx),
                   mid = as.double(0))$c
   tmp <- rev(tmp[,1]) * scly/2

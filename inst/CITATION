@@ -1,4 +1,39 @@
-citHeader("To cite the 'MonoPoly' package in publications use:")
+citHeader("To cite the 'MonoPoly' package in publications use:
+2016 for the sum of squares parameterisation;
+2013 for Elphinstone type parameterisations or Hawkins' algorithm")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = "MonoPoly: Functions to Fit Monotone Polynomials",
+         author = personList(as.person("B. A. Turlach"),
+                             as.person("K. Murray")),
+         year = year,
+         note = vers,
+
+         textVersion =
+         paste("Berwin Turlach and Kevin Murray (",
+               year,
+               ").  MonoPoly: Functions to Fit Monotone Polynomials. ",
+               vers, ".", sep=""))
+
+
+citEntry(entry="Article",
+         author = personList(as.person("K. Murray"),
+                             as.person("S. M{\\\"u}ller"),
+                             as.person("B. A. Turlach")),
+         title= "Fast and flexible methods for monotone polynomial fitting",
+         journal = "Journal of Statistical Computation and Simulation",
+         year    = "2016",
+         note    = "Accepted for publication",
+  
+        textVersion =
+        paste("Murray, K., Müller, S. and Turlach, B.A. (2016).",
+              "Fast and flexible methods for monotone polynomial fitting,",
+              "Journal of Statistical Computation and Simulation.",
+              "Accepted for publication.")
+)
 
 citEntry(entry="Article",
          author = personList(as.person("K. Murray"),

@@ -2,9 +2,12 @@ useDynLib(MonoPoly, .registration = TRUE, .fixes = ".MP_")
 
 export(monpol)
 export(monpol.fit)
+export(SOSpol.fit)
 export(monpol.control)
 export(evalPol)
-
+export(curvPol)
+export(ismonotone)
+    
 import(quadprog)
 
 S3method(coef, monpol)
@@ -15,6 +18,8 @@ S3method(model.matrix, monpol)
 S3method(print, monpol)
 S3method(predict, monpol)
 S3method(residuals, monpol)
+S3method(ismonotone, monpol)
+S3method(ismonotone, default)
 
 importFrom("graphics", "abline", "lines", "plot")
 importFrom("stats", ".checkMFClasses", "coef", "convolve", "cor",

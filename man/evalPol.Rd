@@ -24,15 +24,6 @@ evalPol(x, beta)
 Berwin A Turlach
 }
 \examples{
-## The function is currently defined as
-function (x, beta) 
-{
-    res <- 0
-    for(bi in rev(beta))
-      res <- res*x + bi
-    res
-  }
-
 beta <- c(1,2,1)
 
 x <- 0:10
