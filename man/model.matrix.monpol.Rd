@@ -25,6 +25,6 @@ Construct Design Matrices
    Design matrix created from the model object \code{object}.
 }
 \author{
-Berwin A Turlach
+Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \keyword{models}

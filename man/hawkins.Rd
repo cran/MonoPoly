@@ -16,7 +16,7 @@ polynomial with equally spaced x values between -1 and 1.
     \item{\code{x}}{a numeric vector}
   }
 }
-\references{
+\source{
 Hawkins, D. M. (1994) Fitting monotonic polynomials to
   data. \emph{Computational Statistics} \bold{9}(3):
   233--247. 

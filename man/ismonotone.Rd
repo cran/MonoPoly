@@ -43,7 +43,9 @@ ismonotone(object, \dots)
   polynomial that should be monotone is declared to be not monotone.
 }
 \author{
-  Kevin Murray and Berwin A Turlach
+  Kevin Murray <Kevin.Murray@uwa.edu.au>
+
+  Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \examples{
   fit <- monpol(y~x, w0)
@@ -54,4 +56,4 @@ ismonotone(object, \dots)
   ismonotone(beta, a=0)
   ismonotone(beta, b=0)
 }
-\keyword{utitlities}
+\keyword{utilities}

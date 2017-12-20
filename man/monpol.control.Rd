@@ -36,10 +36,7 @@ monpol.control(maxiter = 1000, tol = 1e-05,
   \item{tolqr}{}
   with meanings as explained under \sQuote{Arguments}.
 }
-%% \references{
-%% %% ~put references to the literature/web site here ~
-%% }
-\author{Berwin A Turlach}
+\author{Berwin A Turlach <Berwin.Turlach@gmail.com>}
 \seealso{
   \code{\link{monpol}}, \code{\link{monpol.fit}}, \code{\link[base]{qr}}
 }

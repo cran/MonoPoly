@@ -21,7 +21,7 @@ evalPol(x, beta)
   returned in the same dimension as \code{x} has.
 }
 \author{
-Berwin A Turlach
+Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \examples{
 beta <- c(1,2,1)

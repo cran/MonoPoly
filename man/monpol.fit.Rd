@@ -78,16 +78,16 @@ SOSpol.fit(x, y, w = NULL, deg.is.odd, K, start, a, b,
 \references{
 Murray, K., \enc{Müller}{Mueller}, S. and Turlach, B.A. (2016). Fast and
 flexible methods for monotone polynomial fitting, \emph{Journal of
-Statistical Computation and Simulation}.
-Accepted for publication, doi:10.1080/00949655.2016.1139582.
+Statistical Computation and Simulation} \bold{86}(15):
+2946--2966, \doi{10.1080/00949655.2016.1139582}.
   
 Murray, K., \enc{Müller}{Mueller}, S. and Turlach,
 B.A. (2013). Revisiting fitting monotone polynomials to data,
 \emph{Computational Statistics} \bold{28}(5):
-1989--2005. Doi:10.1007/s00180-012-0390-5.
+1989--2005, \doi{10.1007/s00180-012-0390-5}.
 }
 \author{
-Berwin A Turlach
+Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \seealso{
 \code{\link{monpol}} which you should use for fitting monotonic

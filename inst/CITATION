@@ -26,13 +26,16 @@ citEntry(entry="Article",
          title= "Fast and flexible methods for monotone polynomial fitting",
          journal = "Journal of Statistical Computation and Simulation",
          year    = "2016",
-         note    = "Accepted for publication",
+         volume  = "86",
+         number  = "15",
+         pages   = "2946--2966",
+         url     = "http://doi.org/10.1080/00949655.2016.1139582",
   
         textVersion =
         paste("Murray, K., Müller, S. and Turlach, B.A. (2016).",
               "Fast and flexible methods for monotone polynomial fitting,",
-              "Journal of Statistical Computation and Simulation.",
-              "Accepted for publication.")
+              "Journal of Statistical Computation and Simulation 86(15): 2946-2966.",
+              "Doi:10.1080/00949655.2016.1139582.")
 )
 
 citEntry(entry="Article",
@@ -45,7 +48,7 @@ citEntry(entry="Article",
          volume = "28",
          number = "5",
          pages = "1989--2005",
-         url     = "http://dx.doi.org/10.1007/s00180-012-0390-5",
+         url     = "http://doi.org/10.1007/s00180-012-0390-5",
   
         textVersion =
         paste("Murray, K., Müller, S. and Turlach, B.A. (2013).",

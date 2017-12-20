@@ -13,8 +13,8 @@ Printing Monotone Polynomials
   \item{x}{A \sQuote{monpol} object.}
   \item{digits}{minimal number of \emph{significant} digits, see
     \code{\link{print.default}}.}
-  \item{\dots}{Additional optionals arguments.  At present only those
-    additaion arguments for \link{coef.monpol} are used.}
+  \item{\dots}{Additional optionals arguments.  At present only the
+    additional arguments for \link{coef.monpol} are used.}
 }
 \details{
   This is the \code{\link{print}} method for objects inheriting from
@@ -24,6 +24,6 @@ Printing Monotone Polynomials
    \code{x} returned invisibly.
 }
 \author{
-Berwin A Turlach
+Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \keyword{print}

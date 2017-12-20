@@ -25,7 +25,7 @@ Extract Model Residuals
    Residuals extracted from the model object \code{object}.
 }
 \author{
-Berwin A Turlach
+Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \keyword{regression}
 \keyword{models}

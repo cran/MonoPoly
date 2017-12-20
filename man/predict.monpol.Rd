@@ -27,7 +27,7 @@
   \code{predict.monpol} produces a vector of predictions.
 }
 \author{
-Berwin A Turlach
+Berwin A Turlach <Berwin.Turlach@gmail.com>
 }
 \keyword{nonlinear}
 \keyword{regression}
