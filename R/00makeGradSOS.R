@@ -176,7 +176,7 @@ makewGradHessSOS <- function(x, y, w, type, deg.is.odd, K){
     res1 <- -colSums(resid*grad)
 
     res2 <- crossprod(w*grad, grad)
-    res2 <- .finishHess(par, res2, x, type, deg.is.odd, K)
+    res2 <- .finishHess(par, res2, resid, x, type, deg.is.odd, K)
           
     list(Grad=2*res1, Hess=2*res2)
   }

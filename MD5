@@ -1,4 +1,4 @@
-7c91446801c363c6a08b930dfec41a59 *DESCRIPTION
+bf52086664ea388f5cee666391ae89af *DESCRIPTION
 751419260aa954499f7abaabaa882bbe *GPL-2
 d32239bcb673463ab874e80d47fae504 *GPL-3
 ab5be9c987f79fb95538bb9b9bb4f7ab *NAMESPACE
@@ -13,19 +13,19 @@ ff56423436ab65b03ac0339abe247994 *R/00SOSPol.R
 80877e83ab74bfcb8c0f0bbb7615f002 *R/00makeGradHessBlk1.R
 430af31aeabd98a19afa8058bfcc37e9 *R/00makeGradHessBlk2.R
 1c61355521036b8edb767d702998997d *R/00makeGradHessFull.R
-65f3826c77cedc7960b720fa65cdbb6c *R/00makeGradSOS.R
+24955cab9b4287c059d4f7269b837fe4 *R/00makeGradSOS.R
 6453cf8540f10f5b0abd7909b1e461f0 *R/00makeRSS.R
 d4bf72146c6ab64b044ce4bdbe332e2b *R/00makeRSSSOS.R
 5dd2d4b2970e44608c53e4c0d0afa931 *R/Hawkins.R
 ffb640cafbd4f157e56b255418a96bab *R/Nointercept.R
 514e8db36ff15051609becf0813185b0 *R/ismonotone.R
 bf9d948192a37fca0a3f128866708b34 *R/util.R
-c700497cd3629975bf6b4b79837a5aca *build/partial.rdb
+441a3e1e731cbd5b922e7b9b3c8268b9 *build/partial.rdb
 cae048627d025c107325022b538835bb *data/hawkins.rda
 e3aea1a7e0c58dbc5da460d9d3dd0a1f *data/w0.rda
 0c0404d7b00532e4b10f240b9a236e41 *data/w2.rda
 4ff361e81748565e84f657c2b9df7525 *inst/CITATION
-c5fb07c0a8ad41f42de6cf12d3bda7d1 *inst/doc/MonoPoly-manual.pdf
+44ff1c15288929e6d49e29564605c2f4 *inst/doc/MonoPoly-manual.pdf
 3837eeae81eb8b5d2411eb7f1f880a0e *man/coef.monpol.Rd
 a02f6e6df7169fc251153c26edc55ab9 *man/curvPol.Rd
 13af742d9395489350f06b6c79da04d4 *man/evalPol.Rd
@@ -41,7 +41,7 @@ b6d00c7a69470cca86cc3a4b96e031d6 *man/predict.monpol.Rd
 530db787fef7c4fe3d791a1762992fdc *man/residuals.monpol.Rd
 c9328ee0c49d35f5a24d24f5a5deb666 *man/w0.Rd
 346ffa943652097d5730cfd118df2835 *man/w2.Rd
-b32bf5eccef01fa2592a9067d7843432 *src/Makevars
+9e39ced3e21e4692c70c405f37a9c0dc *src/Makevars
 921588872f53aaed3f18c0b7656d7fb2 *src/MonPol-win.def
 dc665cb69894461253658e019004efdd *src/MonPol.h
 93bc3672466dde312d861569056661c0 *src/beta_trans.f
